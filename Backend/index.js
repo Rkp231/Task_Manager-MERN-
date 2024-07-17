@@ -9,7 +9,11 @@ require("./Models/db");
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin:["https://task-manager-mern-api-ivory.vercel.app"],
+  methods:["POST","GET","PUT","DELETE"],
+  credentials:true
+}));
 app.use(bodyParser.json());
 app.use("/tasks", TaskRouter);
 
