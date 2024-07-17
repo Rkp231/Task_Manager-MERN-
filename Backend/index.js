@@ -15,6 +15,11 @@ app.use(cors({
   credentials:true
 }));
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+    res.send('Hello from the server');
+});
+
 app.use("/tasks", TaskRouter);
 
 app.listen(PORT, () => {
